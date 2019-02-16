@@ -8,6 +8,20 @@ var config = {
   };
   firebase.initializeApp(config);
 
+
+$("#customerSaveButton").on("click", () => {
+  let customerFirstName = $("#customerFirstName").val();
+  let customerLastName = $("#customerLastName").val();
+  let customerPhoneNumber = $("#customerPhoneNumber").val();
+  let customerAltPhoneNumber = $("#customerAltPhoneNumber").val();
+  let customerStreetAddress = $("#customerStreetAddress").val();
+  let customerCityAddress = $("#customerCityAddress").val();
+  let customerStateAddress = $("#customerStateAddress").val();
+  let customerTime = $("#customerTime").val();
+  let customerDate = $("#customerDate").val();
+  let customerSuppliesNeeded = $("#customerSuppliesNeeded").val();
+});
+
 let carrierSelected;
 
 
@@ -31,11 +45,10 @@ CSpire: "@cspire1.com",
 PagePlus: "@vtext.com"
 }
 
-// $(document).on("click", "#addEmployeeModalLabel" function() {
 
-  $(".cellItem").on("click", function() {
-    $(".carrierSelected").text(this.text);
-    carrierSelected = this.text;
-    });
+$(".cellItem").on("click", function() {
+  $(".carrierSelected").text(this.text);
+  carrierSelected = this.text;
+  });
   
-  // });
+

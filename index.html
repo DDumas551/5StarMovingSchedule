@@ -60,6 +60,7 @@
                                             <input type="tel" class="form-control" id="customerAltPhoneNumber" aria-describedby="customerInfo" placeholder="Enter Alt Phone:">
                                         </div>
                                     </div>
+                                    <br>
                                     <div class="row">
                                         <div class="col">
                                             <h5>Address:</h5>
@@ -78,9 +79,10 @@
                                             <input type="text" class="form-control" id="customerStateAddress" aria-describedby="customerInfo" placeholder="Enter State:">
                                         </div>
                                     </div>
+                                    <br>
                                     <div class="row">
                                         <div class="col">
-                                            <h5>Job Time and Date:</h5>
+                                            <h5>Job Start Time and Date:</h5>
                                         </div>
                                     </div>
                                     <div class="row">
@@ -91,12 +93,52 @@
                                             <input type="date" class="form-control" id="customerDate" aria-describedby="customerInfo">
                                         </div>
                                     </div>
+                                    <br>
+                                    <div class="row">
+                                        <div class="col">
+                                            <h5>Supplies Needed:</h5>
+                                        </div>
+                                        <div class="container">
+                                            <div class="input-group">
+                                                <textarea id="customerSuppliesNeeded" class="form-control" aria-label="With textarea" placeholder="Enter Supplies Here"></textarea>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <br>
+                                    <div class="row">
+                                        <div class="col">
+                                            <h5>Hourly Rate and Deposit:</h5>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col">
+                                            <input id="depositAmt" type="number" class="form-control" id="customerTime" aria-describedby="customerInfo" placeholder="Deposit Amount">
+                                        </div>
+                                        <div class="col">
+                                            <input id="hourlyRate" type="number" class="form-control" id="customerTime" aria-describedby="customerInfo" placeholder="Hourly Rate">
+                                        </div>
+                                    </div>
+                                    <br>
+                                    <div class="row">
+                                        <div class="col">
+                                            <div class="dropdown">
+                                                <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                                    Payment Method
+                                                </button>
+                                                <div id="paymentDropdown" class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                                                    <a id="cash" class="dropdown-item" href="#">Cash/Check</a>
+                                                    <a id="credit" class="dropdown-item" href="#">Credit</a>
+                                                    <a id="hiredHelpers" class="dropdown-item" href="#">Hired Helpers</a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
                                 </div>
 
                             </div>
                             <div class="modal-footer">
                             <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                            <button type="button" class="btn btn-primary">Save changes</button>
+                            <button id="customerSaveButton" type="button" class="btn btn-primary">Save changes</button>
                             </div>
                         </div>
                         </div>
