@@ -11,53 +11,60 @@ firebase.initializeApp(config);
 let database = firebase.database();
 
 $("#customerSaveButton").on("click", () => {
-  let customerFirstName = $("#customerFirstName").val();
-  let customerLastName = $("#customerLastName").val();
-  let customerPhoneNumber = $("#customerPhoneNumber").val();
-  let customerAltPhoneNumber = $("#customerAltPhoneNumber").val();
-  let customerStreetAddress = $("#customerStreetAddress").val();
-  let customerCityAddress = $("#customerCityAddress").val();
-  let customerStateAddress = $("#customerStateAddress").val();
-  let customerStreetAddress2 = $("#customerStreetAddress2").val();
-  let customerCityAddress2 = $("#customerCityAddress2").val();
-  let customerStateAddress2 = $("#customerStateAddress2").val();
-  let customerStreetAddress3 = $("#customerStreetAddress3").val();
-  let customerCityAddress3 = $("#customerCityAddress3").val();
-  let customerStateAddress3 = $("#customerStateAddress3").val();
-  let customerTime = $("#customerTime").val();
-  let customerDate = $("#customerDate").val();
-  let customerSuppliesNeeded = $("#customerSuppliesNeeded").val();
-  let depositAmt = $("#depositAmt").val();
-  let hourlyRate = $("#hourlyRate").val();
-  let paymentMethodFB = $("#paymentMethod").val();
-
   database.ref().push({
-    customerFirstName: customerFirstName,
-    customerLastName: customerLastName,
-    customerPhoneNumber: customerPhoneNumber,
-    customerAltPhoneNumber: customerAltPhoneNumber,
-    customerStreetAddress: customerStreetAddress,
-    customerCityAddress: customerCityAddress,
-    customerStateAddress: customerStateAddress,
-    customerStreetAddress2: customerStreetAddress2,
-    customerCityAddress2: customerCityAddress2,
-    customerStateAddress2: customerStateAddress2,
-    customerStreetAddress3: customerStreetAddress3,
-    customerCityAddress3: customerCityAddress3,
-    customerStateAddress3: customerStateAddress3,
-    customerTime: customerTime,
-    customerDate: customerDate,
-    customerSuppliesNeeded: customerSuppliesNeeded,
-    depositAmt: depositAmt,
-    hourlyRate: hourlyRate,
-    paymentMethodFB: paymentMethodFB
+    customerFirstName: $("#customerFirstName").val(),
+    customerLastName: $("#customerLastName").val(),
+    customerPhoneNumber: $("#customerPhoneNumber").val(),
+    customerAltPhoneNumber: $("#customerAltPhoneNumber").val(),
+    customerStreetAddress: $("#customerStreetAddress").val(),
+    customerCityAddress: $("#customerCityAddress").val(),
+    customerStateAddress: $("#customerStateAddress").val(),
+    // customerStreetAddress2: $("#customerStreetAddress2").val(),
+    // customerCityAddress2: $("#customerCityAddress2").val(),
+    // customerStateAddress2: $("#customerStateAddress2").val(),
+    // customerStreetAddress3: $("#customerStreetAddress3").val(),
+    // customerCityAddress3: $("#customerCityAddress3").val(),
+    // customerStateAddress3: $("#customerStateAddress3").val(),
+    customerTime: $("#customerTime").val(),
+    customerDate: $("#customerDate").val(),
+    customerSuppliesNeeded: $("#customerSuppliesNeeded").val(),
+    depositAmt: $("#depositAmt").val(),
+    hourlyRate: $("#hourlyRate").val(),
+    paymentMethodFB: $("#paymentMethod").val()
 
   });
 });
 
-// database.ref().on("child_added", function(childSnapshot) {
+database.ref().on("child_added", function(childSnapshot) {
+  let customerFirstName = childSnapshot.val().customerFirstName;
+  let customerLastName = childSnapshot.val().customerLastName;
+  let customerPhoneNumber = childSnapshot.val().customerPhoneNumber;
+  let customerAltPhoneNumber =childSnapshot.val().customerAltPhoneNumber;
+  let customerStreetAddress = childSnapshot.val().customerStreetAddress;
+  let customerCityAddress = childSnapshot.val().customerCityAddress;
+  let customerStateAddress = childSnapshot.val().customerStateAddress;
+  // let customerStreetAddress2 = childSnapshot.val().customerStreetAddress2;
+  // let customerCityAddress2 = childSnapshot.val().customerCityAddress2;
+  // let customerStateAddress2 = childSnapshot.val().customerStateAddress2;
+  // let customerStreetAddress3 = childSnapshot.val().customerStreetAddress3;
+  // let customerCityAddress3 = childSnapshot.val().customerCityAddress3;
+  // let customerStateAddress3 = childSnapshot.val().customerStateAddress3;
+  let customerTime = childSnapshot.val().customerTime;
+  let customerDate = childSnapshot.val().customerDate;
+  let customerSuppliesNeeded = childSnapshot.val().customerSuppliesNeeded;
+  let depositAmt = childSnapshot.val().depositAmt;
+  let hourlyRate = childSnapshot.val().hourlyRate;
+  let paymentMethodFB = childSnapshot.val().paymentMethodFB;
 
-// });
+  let tr = $("<tr>").append(
+    $("<td>").text(moment(customerDate).format("MMM Do YY")),
+    $("<td>").text(customerFirstName),
+    $("<td>").text(customerLastName),
+    $("<td>").text(customerCityAddress)
+  );
+  $("<tr>").addClass("jobItem");
+  $(".customerShortInfo").append(tr);
+});
 
 // let jObject {[]};
 let carrierSelected;
