@@ -3,7 +3,7 @@
     <head>
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <title>ScheduleIt</title>
+        <title>Schedule App</title>
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
@@ -39,50 +39,64 @@
                                 <div class="container-fluid">
                                     <div class="row">
                                         <div class="col">
-                                            <h5>Name and Numbers:</h5>
+                                            <h5 class="text-center">Name and Numbers</h5>
                                         </div>
                                     </div>
                                     <div class="row">
                                         <div class="col">
-                                            <input type="text" class="form-control" id="customerFirstName" aria-describedby="customerInfo" placeholder="Enter First Name:">
+                                            <input type="text" class="form-control" id="customerFirstName" aria-describedby="customerInfo" placeholder="Customer First Name:">
                                         </div>
                                         <div class="col">
-                                            <input type="text" class="form-control" id="customerLastName" aria-describedby="customerInfo" placeholder="Enter Last Name:">
-                                        </div>
-                                    </div>
-                                    <div class="row">
-                                        <div class="col">
-                                            <input type="tel" class="form-control" id="customerPhoneNumber" aria-describedby="customerInfo" placeholder="Enter Primary Phone:">
-                                        </div>
-                                    </div>
-                                    <div class="row">
-                                        <div class="col">
-                                            <input type="tel" class="form-control" id="customerAltPhoneNumber" aria-describedby="customerInfo" placeholder="Enter Alt Phone:">
+                                            <input type="text" class="form-control" id="customerLastName" aria-describedby="customerInfo" placeholder="Customer Last Name:">
                                         </div>
                                     </div>
                                     <br>
                                     <div class="row">
                                         <div class="col">
-                                            <h5>Address:</h5>
-                                        </div>
-                                    </div>
-                                    <div class="row">
-                                        <div class="col">
-                                            <input type="text" class="form-control" id="customerStreetAddress" aria-describedby="customerInfo" placeholder="Enter Street Address:">
-                                        </div>
-                                    </div>
-                                    <div class="row">
-                                        <div class="col">
-                                            <input type="text" class="form-control" id="customerCityAddress" aria-describedby="customerInfo" placeholder="Enter City:">
-                                        </div>
-                                        <div class="col">
-                                            <input type="text" class="form-control" id="customerStateAddress" aria-describedby="customerInfo" placeholder="Enter State:">
+                                            <input type="tel" class="form-control" id="customerPhoneNumber" aria-describedby="customerInfo" placeholder="Primary Phone:">
                                         </div>
                                     </div>
                                     <br>
                                     <div class="row">
                                         <div class="col">
-                                            <h5>Job Start Time and Date:</h5>
+                                            <input type="tel" class="form-control" id="customerAltPhoneNumber" aria-describedby="customerInfo" placeholder="Alt Phone:">
+                                        </div>
+                                    </div>
+                                    <br>
+                                    <div class="row">
+                                        <div class="col">
+                                            <h5 class="text-center">Address</h5>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col">
+                                            <input type="text" class="form-control" id="customerStreetAddress" aria-describedby="customerInfo" placeholder="Street Address:">
+                                        </div>
+                                    </div>
+                                    <br>
+                                    <div class="row">
+                                        <div class="col">
+                                            <input type="text" class="form-control" id="customerCityAddress" aria-describedby="customerInfo" placeholder="City:">
+                                        </div>
+                                        <div class="col">
+                                            <input type="text" class="form-control" id="customerStateAddress" aria-describedby="customerInfo" placeholder="State:">
+                                        </div>
+                                    </div>
+                                    <br>
+                                    <div class="row">
+                                        <div class="col">
+                                            <button type="button" class="btn btn-success otherAddresses">Other Addresses</button>
+                                        </div>
+                                    </div>
+                                    <br>
+                                    <!-- <div class="form-group form-check">
+                                        <input type="checkbox" class="form-check-input" id="exampleCheck1">
+                                        <label class="form-check-label" for="exampleCheck1">Check if there's a second address</label>
+                                    </div>
+                                    <br> -->
+                                    <div class="row">
+                                        <div class="col">
+                                            <h5 class="text-center">Job Start Time and Date</h5>
                                         </div>
                                     </div>
                                     <div class="row">
@@ -96,7 +110,7 @@
                                     <br>
                                     <div class="row">
                                         <div class="col">
-                                            <h5>Supplies Needed:</h5>
+                                            <h5 class="text-center">Supplies Needed</h5>
                                         </div>
                                         <div class="container">
                                             <div class="input-group">
@@ -107,7 +121,7 @@
                                     <br>
                                     <div class="row">
                                         <div class="col">
-                                            <h5>Hourly Rate and Deposit:</h5>
+                                            <h5 class="text-center">Hourly Rate and Deposit</h5>
                                         </div>
                                     </div>
                                     <div class="row">
@@ -126,11 +140,14 @@
                                                     Payment Method
                                                 </button>
                                                 <div id="paymentDropdown" class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                                                    <a id="cash" class="dropdown-item" href="#">Cash/Check</a>
-                                                    <a id="credit" class="dropdown-item" href="#">Credit</a>
-                                                    <a id="hiredHelpers" class="dropdown-item" href="#">Hired Helpers</a>
+                                                    <a id="cash" class="dropdown-item paymentMethod">Cash/Check</a>
+                                                    <a id="credit" class="dropdown-item paymentMethod">Credit</a>
+                                                    <a id="hiredHelpers" class="dropdown-item paymentMethod">Hired Helpers</a>
                                                 </div>
                                             </div>
+                                        </div>
+                                        <div class="col">
+                                            <p id="paymentMethod" style="font-size: 22px"></p>
                                         </div>
                                     </div>
                                 </div>
@@ -142,14 +159,43 @@
                             </div>
                         </div>
                         </div>
+
                     </div>
 <!-- End of Job Modal -->
                 </div>
             </div>
             <div class="row cntnr info">
                 <div class="col rightCol">
-                    <h3 class="text-center currentJobs">
-                    </h3>
+                    <h3 class="text-center currentJobs">Current Jobs</h3>
+                    <table class="table table-hover">
+                        <thead>
+                            <tr>
+                                <th scope="col">Job Date</th>
+                                <th scope="col">First</th>
+                                <th scope="col">Last</th>
+                                <th scope="col">Phone</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <th scope="row">1</th>
+                                <td>Mark</td>
+                                <td>Otto</td>
+                                <td>@mdo</td>
+                            </tr>
+                            <tr>
+                                <th scope="row">2</th>
+                                <td>Jacob</td>
+                                <td>Thornton</td>
+                                <td>@fat</td>
+                            </tr>
+                            <tr>
+                                <th scope="row">3</th>
+                                <td colspan="2">Larry the Bird</td>
+                                <td>@twitter</td>
+                            </tr>
+                        </tbody>
+                    </table>
                 </div>
             </div>
             <div class="row cntnr info">
