@@ -66,6 +66,23 @@ database.ref().on("child_added", function(childSnapshot) {
   $(".customerShortInfo").append(tr);
 });
 
+let secondAdd = false;
+let thirdAdd = false;
+
+let br = $("<br>");
+let divRow = $("<div class='row rowForBtns'>");
+let divCol = $("<div class='col'>");
+let streetInput2 = $("<input type='text' class='form-control' id='customerStreetAddress2' aria-describedby='customerInfo' placeholder='2nd Street Address:'>");
+let cityInput2 = $("<input type='text' class='form-control' id='customerCityAddress2' aria-describedby='customerInfo' placeholder='2nd City:'>");
+let stateInput2 = $("<input type='text' class='form-control' id='customerStateAddress2' aria-describedby='customerInfo' placeholder='2ndState:'>");
+let streetInput3 = $("<input type='text' class='form-control' id='customerStreetAddress3' aria-describedby='customerInfo' placeholder='3rd Street Address:'>");
+
+
+$(".2ndAddress").on('click', function() {
+
+  $(".addressContainer").append(br, streetInput2, br, cityInput2, stateInput2);
+});
+
 // let jObject {[]};
 let carrierSelected;
 let paymentMethod;
