@@ -10,6 +10,7 @@ firebase.initializeApp(config);
 
 let database = firebase.database();
 
+let keyArr = [];
 
 let secondButton = false;
 let thirdButton  = false;
@@ -108,14 +109,17 @@ database.ref().on("child_added", function(childSnapshot) {
   let depositAmt = childSnapshot.val().depositAmt;
   let hourlyRate = childSnapshot.val().hourlyRate;
   let paymentMethodFB = childSnapshot.val().paymentMethodFB;
-
-  let tr = $("<tr>").append(
+  keyArr.push(childSnapshot.key);
+ 
+  let tr = $("<tr>");
+    tr.append(
     $("<td>").text(moment(customerDate).format("MMM Do YY")),
     $("<td>").text(customerFirstName),
     $("<td>").text(customerLastName),
     $("<td>").text(customerCityAddress)
   );
-  $("<tr>").addClass("jobItem");
+  tr.addClass("jobItem");
+  tr.attr("data-id", childSnapshot.key);
   $(".customerShortInfo").append(tr);
 });
 
@@ -189,6 +193,7 @@ let carrierSelected;
 let paymentMethod;
 
 
+
 let cellCarrier = {
 ATT: "@txt.att.net",
 TMobile: "@tmomail.net",
@@ -220,4 +225,17 @@ $(".paymentMethod").on("click", function() {
   paymentMethod = this.text;
   });
   
+$(".addEmpSaveBtn").on("click"), () => {
+  let empNumber = $("#newEmpNumber").val();
+  let empCarrier = $(".carrierSelected").val();
+  database.ref().push({
+    newEmpFirstName: $("#newEmpFirstName").val(),
+    newEmpLastName: $("#newEmpLastName").val(),
+    newEmpNumber: `${empNumber + '@' + empCarrier}`
+  });
+  console.log(empNumber + '@' + empCarrier);
+}
+
+
+console.log(keyArr);
 
